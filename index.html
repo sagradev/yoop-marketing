@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoop - Agência de Marketing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: #0D2A0D url('./imagens/fundo.png') no-repeat center top;
+            background-size: contain;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="text-white font-sans">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 w-full bg-transparent z-50 transition-colors">
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <img src="./imagens/logo.png" alt="Logo Yoop" class="h-12">
+            <nav class="space-x-4">
+                <a href="#servicos" class="hover:text-orange-400 transition">Serviços</a>
+                <a href="#portfolio" class="hover:text-orange-400 transition">Portfólio</a>
+                <a href="#contato" class="bg-orange-500 px-4 py-2 rounded hover:bg-orange-600 transition">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="h-screen flex items-center justify-center text-center relative">
+        <div class="fade-up">
+            <h1 class="text-5xl font-bold text-yellow-400">Transforme sua marca com a Yoop</h1>
+            <p class="mt-4 text-lg">Soluções criativas em marketing digital, tráfego pago e branding.</p>
+            <a href="#contato"
+                class="mt-6 inline-block bg-orange-500 px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">Quero
+                começar agora</a>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-20 bg-grey-600 bg-opacity-70 text-center fade-up">
+        <h2 class="text-3xl font-bold text-orange-400">Nossos Serviços</h2>
+        <p class="mt-4 text-lg">Marketing Digital • Tráfego Pago • Branding</p>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Marketing Digital -->
+            <div class="service-card">
+                <h3 class="text-xl font-semibold text-white">Marketing Digital</h3>
+                <img src="./imagens/VIDEOMAKER.jpg" alt="Marketing Digital"
+                    class="w-full h-48 object-cover rounded-lg mt-4">
+            </div>
+
+            <!-- Tráfego Pago -->
+            <div class="service-card">
+                <h3 class="text-xl font-semibold text-white">Tráfego Pago</h3>
+                <img src="./imagens/TRÁFEGO PAGO.jpg" alt="Tráfego Pago"
+                    class="w-full h-48 object-cover rounded-lg mt-4">
+            </div>
+
+            <!-- Branding -->
+            <div class="service-card">
+                <h3 class="text-xl font-semibold text-white">Gestao de redes sociais</h3>
+                <img src="./imagens/GESTÃO DE REDES SOCIAIS.jpg" alt="Branding"
+                    class="w-full h-48 object-cover rounded-lg mt-4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section id="portfolio" class="py-20 bg-grey-600 bg-opacity-80 text-center fade-up">
+        <h2 class="text-3xl font-bold text-orange-400">Portfólio</h2>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <div class="overflow-hidden rounded-lg">
+                <img src="./imagens/storymaker.jpg" class="hover:scale-110 transition-transform duration-300">
+            </div>
+            <div class="overflow-hidden rounded-lg">
+                <img src="./imagens/storymaker.jpg" class="hover:scale-110 transition-transform duration-300">
+            </div>
+            <div class="overflow-hidden rounded-lg">
+                <img src="./imagens/storymaker.jpg" class="hover:scale-110 transition-transform duration-300">
+            </div>
+        </div>
+    </section>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="btnTopo"
+        class="fixed bottom-6 right-6 bg-orange-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-orange-600 transition hidden">↑</button>
+
+    <footer class="bg-green-900 bg-opacity-70 text-center py-4">
+        <p>&copy; 2025 Yoop Agência de Marketing</p>
+    </footer>
+
+    <script>
+        // Header muda cor ao rolar
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('bg-green-900', window.scrollY > 50);
+        });
+
+        // Botão de voltar ao topo
+        const btnTopo = document.getElementById('btnTopo');
+        window.addEventListener('scroll', () => {
+            btnTopo.classList.toggle('hidden', window.scrollY < 300);
+        });
+        btnTopo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Animações de scroll
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('show');
+            });
+        }, { threshold: 0.2 });
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
