@@ -8,29 +8,33 @@
     <title>Portfólio - Yoop Agência de Marketing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --laranja: #F5821F;
-            --verde-escuro: #0D2A0D;
-            --azul: #1C9CE4;
-            --amarelo: #FDBA21;
+        html {
+            scroll-behavior: smooth;
         }
 
-        [data-filter].active {
-            background-color: var(--laranja);
-            color: white;
+        body {
+            background-color: #0D2A0D;
+            /* Cor verde, igual ao index.html */
+            background-image: url('imagens/fundo.png');
+            /* Deixe a imagem como está */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
     </style>
     <!-- GLightbox CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 </head>
 
-<body class="font-sans bg-white text-[var(--verde-escuro)]">
+<body class="font-sans text-white">
+
 
     <!-- Header -->
     <header class="bg-[var(--verde-escuro)] text-white p-4">
         <div class="container mx-auto flex items-center justify-between">
             <a href="index.html">
-                <img src="logo.png" alt="Logo Yoop" class="h-12">
+                <img src="./imagens/logo.png" alt="Logo Yoop" class="h-12">
             </a>
             <nav class="flex gap-4">
                 <a href="index.html#servicos" class="hover:text-[var(--laranja)]">Serviços</a>
@@ -63,71 +67,115 @@
         </div>
     </section>
 
-    <!-- Grid de Projetos -->
-    <section class="container mx-auto px-4 py-10">
-        <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- Exemplo de item -->
-            <a href="img1.jpg" class="portfolio-item group" data-category="social" data-lightbox="yoop-portfolio">
-                <div class="relative overflow-hidden rounded-lg shadow-lg">
-                    <img src="img1-thumb.jpg" alt="Projeto Social Media"
-                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                        <span class="text-white font-semibold text-lg">Ver Projeto</span>
-                    </div>
-                </div>
-            </a>
-            <a href="img2.jpg" class="portfolio-item group" data-category="branding" data-lightbox="yoop-portfolio">
-                <div class="relative overflow-hidden rounded-lg shadow-lg">
-                    <img src="img2-thumb.jpg" alt="Projeto Branding"
-                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                        <span class="text-white font-semibold text-lg">Ver Projeto</span>
-                    </div>
-                </div>
-            </a>
-            <a href="img3.jpg" class="portfolio-item group" data-category="ads" data-lightbox="yoop-portfolio">
-                <div class="relative overflow-hidden rounded-lg shadow-lg">
-                    <img src="img3-thumb.jpg" alt="Campanha de Tráfego Pago"
-                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                        <span class="text-white font-semibold text-lg">Ver Projeto</span>
-                    </div>
-                </div>
-            </a>
-            <!-- Adicione mais itens -->
+    <!-- Grid de Imagens -->
+    <section id="portfolio" class="py-20 text-center bg-transparent text-white" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-orange-400">Imagens</h2>
+        <p class="mb-10">Projetos visuais e postagens criativas.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+            <img src="./imagens/CRIAÇÃO DE POST.jpg" loading="lazy" alt="Projeto 1"
+                class="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 portfolio-item"
+                data-category="social">
+            <img src="./imagens/storymaker.jpg" loading="lazy" alt="Projeto 2"
+                class="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 portfolio-item"
+                data-category="branding">
+            <img src="./imagens/VIDEOMAKER.jpg" loading="lazy" alt="Projeto 3"
+                class="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 portfolio-item"
+                data-category="ads">
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-[var(--verde-escuro)] text-white text-center py-4">
-        <p>&copy; 2025 Yoop Agência de Marketing. Todos os direitos reservados.</p>
-    </footer>
+    <!-- Grid de Vídeos -->
+    <section class="py-20 text-center" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-orange-400">Vídeos</h2>
+        <p class="mb-10">Conteúdos audiovisuais e reels.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+            <!-- Card de Vídeo com clique para abrir -->
+            <div class="portfolio-item relative cursor-pointer" onclick="openVideoModal('Videos/Bendita.mp4')">
+                <video autoplay loop muted
+                    class="w-full h-48 object-cover rounded-lg transition-transform duration-300">
+                    <source src="Videos/Bendita.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <div class="absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14.752 11.168l-5.197-3.03A1 1 0 008 9.03v5.94a1 1 0 001.555.832l5.197-3.03a1 1 0 000-1.664z" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+                    <!-- Footer -->
+            <footer class="bg-[var(--verde-escuro)] text-white text-center py-4">
+                <p>&copy; 2025 Yoop Agência de Marketing. Todos os direitos reservados.</p>
+            </footer>
 
-    <!-- JS: Lightbox + Filtro -->
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script>
-        const lightbox = GLightbox({ selector: '[data-lightbox="yoop-portfolio"]' });
+            <!-- Modal de Vídeo -->
+            <div id="videoModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden"
+                onclick="closeVideoModal()">
+                <div class="bg-black rounded-lg overflow-hidden w-full max-w-3xl relative"
+                    onclick="event.stopPropagation();">
+                    <video id="modalVideo" controls class="w-full max-w-full max-h-[80vh] object-cover bg-transparent"></video>
+                    <button onclick="closeVideoModal()"
+                        class="absolute top-2 right-2 text-white text-2xl font-bold">&times;</button>
+                </div>
+            </div>
 
-        // Filtro
-        const buttons = document.querySelectorAll("[data-filter]");
-        const items = document.querySelectorAll(".portfolio-item");
 
-        buttons.forEach(btn => {
-            btn.addEventListener("click", () => {
-                // Remove classe active de todos
-                buttons.forEach(b => b.classList.remove("active"));
-                btn.classList.add("active");
 
-                const filter = btn.getAttribute("data-filter");
-                items.forEach(item => {
-                    item.style.display = filter === "all" || item.getAttribute("data-category") === filter ? "block" : "none";
+            <!-- JS: Lightbox + Filtro + Modal -->
+            <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+            <script>
+                const lightbox = GLightbox({ selector: '[data-lightbox="yoop-portfolio"]' });
+
+                const buttons = document.querySelectorAll("[data-filter]");
+                const items = document.querySelectorAll(".portfolio-item");
+
+                buttons.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        buttons.forEach(b => b.classList.remove("active"));
+                        btn.classList.add("active");
+
+                        const filter = btn.getAttribute("data-filter");
+                        items.forEach(item => {
+                            if (filter === "all" || item.getAttribute("data-category") === filter) {
+                                item.style.display = "block";
+                            } else {
+                                item.style.display = "none";
+                            }
+                        });
+                    });
                 });
-            });
-        });
-    </script>
+
+                let lastPlaybackTime = 0;
+                let currentVideoSrc = '';
+
+                function openVideoModal(src) {
+                    const modal = document.getElementById('videoModal');
+                    const video = document.getElementById('modalVideo');
+
+                    if (src !== currentVideoSrc) {
+                        video.src = src;
+                        currentVideoSrc = src;
+                        lastPlaybackTime = 0;
+                    }
+
+                    video.volume = 0.4;
+                    video.currentTime = lastPlaybackTime;
+                    video.play();
+
+                    modal.classList.remove('hidden');
+                }
+
+                function closeVideoModal() {
+                    const modal = document.getElementById('videoModal');
+                    const video = document.getElementById('modalVideo');
+
+                    lastPlaybackTime = video.currentTime;
+                    video.pause();
+                    modal.classList.add('hidden');
+                }
+            </script>
 </body>
 
 </html>
