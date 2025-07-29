@@ -3,9 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="./imagens/icone site.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yoop - Agência de Marketing</title>
+    <meta name="description"
+        content="A Yoop é uma agência de marketing digital especializada em branding, tráfego pago e marketing criativo.">
+    <meta name="keywords" content="marketing digital, tráfego pago, branding, agência, publicidade, Yoop">
+    <meta name="author" content="Agência Yoop">
+    <link rel="icon" href="./imagens/icone site.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,6 +26,7 @@
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
         #menu-toggle:checked+#menu {
@@ -37,6 +42,12 @@
         class="fixed bottom-6 right-6 bg-green-500 p-3 rounded-full shadow-lg hover:bg-green-600 transition z-50">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" class="w-6 h-6 invert"
             alt="WhatsApp">
+    </a>
+
+    <!-- Botão Voltar ao Topo -->
+    <a href="#"
+        class="fixed bottom-20 right-6 bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition z-40">
+        ↑
     </a>
 
     <!-- Navbar responsiva -->
@@ -132,8 +143,17 @@
         </form>
     </section>
 
-    <footer class="text-center py-4 text-sm opacity-60">
-        <p>&copy; 2025 Yoop Agência de Marketing. Todos os direitos reservados.</p>
+    <footer class="text-center py-8 text-sm opacity-80">
+        <p class="text-white">&copy; 2025 Yoop Agência de Marketing. Todos os direitos reservados.</p>
+        <ul class="flex justify-center gap-6 mt-4">
+            <li><a href="https://www.instagram.com/agencia.yoop" target="_blank" rel="noopener noreferrer">Instagram
+                <img src="./imagens/instagram.png" alt="Instagram" class="w-20 h-20 hover:opacity-80 transition">
+            </a></li>
+            <a href="$" target="_blank" rel="noopener noreferrer">YouTube
+                <img src="./imagens/instagram.png" alt="Instagram" class="w-20 h-20 hover:opacity-80 transition">
+            </a></li>
+            <li><a href="#" class="hover:underline">Termos de uso</a></li>
+        </ul>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
