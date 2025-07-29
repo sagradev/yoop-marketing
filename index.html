@@ -3,127 +3,142 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="./imagens/icone site.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yoop - Agência de Marketing</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background: #0D2A0D url('./imagens/fundo.png') no-repeat center top;
+            font-family: 'Inter', sans-serif;
+            background-color: #0D2A0D;
+            background-image: url('imagens/fundo.png');
             background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        .fade-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-up.show {
-            opacity: 1;
-            transform: translateY(0);
+        #menu-toggle:checked+#menu {
+            display: block;
         }
     </style>
 </head>
 
-<body class="text-white font-sans">
+<body class="text-white">
 
-    <!-- Header -->
-    <header id="header" class="fixed top-0 left-0 w-full bg-transparent z-50 transition-colors">
-        <div class="container mx-auto flex items-center justify-between p-4">
-            <img src="./imagens/logo.png" alt="Logo Yoop" class="h-12">
-            <nav class="space-x-4">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/5567998005041" target="_blank"
+        class="fixed bottom-6 right-6 bg-green-500 p-3 rounded-full shadow-lg hover:bg-green-600 transition z-50">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" class="w-6 h-6 invert"
+            alt="WhatsApp">
+    </a>
+
+    <!-- Navbar responsiva -->
+    <header class="w-full fixed top-0 bg-[#0D2A0D]/90 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <img src="./imagens/logo.png" alt="Yoop Logo" class="h-10">
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            <label for="menu-toggle" class="cursor-pointer lg:hidden block">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </label>
+            <nav id="menu" class="hidden lg:flex space-x-6">
                 <a href="#servicos" class="hover:text-orange-400 transition">Serviços</a>
                 <a href="#portfolio" class="hover:text-orange-400 transition">Portfólio</a>
-                <a href="#contato" class="bg-orange-500 px-4 py-2 rounded hover:bg-orange-600 transition">Contato</a>
+                <a href="#contato" class="hover:text-orange-400 transition">Contato</a>
             </nav>
+        </div>
+        <div id="menu" class="lg:hidden hidden px-4 pb-4 flex-col space-y-2">
+            <a href="#servicos" class="block hover:text-orange-400 transition">Serviços</a>
+            <a href="#portfolio" class="block hover:text-orange-400 transition">Portfólio</a>
+            <a href="#contato" class="block hover:text-orange-400 transition">Contato</a>
         </div>
     </header>
 
     <!-- Hero -->
-    <section class="h-screen flex items-center justify-center text-center relative">
-        <div class="fade-up">
-            <h1 class="text-5xl font-bold text-yellow-400">Transforme sua marca com a Yoop</h1>
-            <p class="mt-4 text-lg">Soluções criativas em marketing digital, tráfego pago e branding.</p>
-            <a href="#contato"
-                class="mt-6 inline-block bg-orange-500 px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">Quero
-                começar agora</a>
-        </div>
+    <section class="h-screen flex flex-col items-center justify-center text-center px-4 pt-20" data-aos="fade-up">
+        <h1 class="text-5xl font-bold text-white">
+            Transforme sua marca com <span class="text-yellow-400">a Yoop</span>
+        </h1>
+        <p class="mt-4 text-lg">Soluções criativas em marketing digital, tráfego pago e branding.</p>
+        <a href="#contato"
+            class="mt-6 inline-block bg-orange-500 px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition transform hover:scale-105">
+            Quero começar agora
+        </a>
     </section>
+
+    <div class="h-1 w-20 bg-orange-400 mx-auto my-8 rounded-full opacity-30"></div>
 
     <!-- Serviços -->
-    <section id="servicos" class="py-20 bg-grey-600 bg-opacity-70 text-center fade-up">
+    <section id="servicos" class="py-20 text-center" data-aos="fade-up">
         <h2 class="text-3xl font-bold text-orange-400">Nossos Serviços</h2>
-        <p class="mt-4 text-lg">Marketing Digital • Tráfego Pago • Branding</p>
-
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-            <!-- Marketing Digital -->
-            <div class="service-card">
-                <h3 class="text-xl font-semibold text-white">Marketing Digital</h3>
-                <img src="./imagens/VIDEOMAKER.jpg" alt="Marketing Digital"
-                    class="w-full h-48 object-cover rounded-lg mt-4">
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <div class="p-4 bg-white/10 rounded-lg hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-orange-300">Marketing Digital</h3>
+                <img src="./imagens/GESTÃO DE REDES SOCIAIS.jpg" alt="Marketing Digital"
+                    class="w-full h-48 object-cover rounded-lg mt-4 transition-transform duration-300 hover:scale-105">
+                <p class="mt-2 text-sm">Campanhas criativas e estratégias personalizadas.</p>
             </div>
-
-            <!-- Tráfego Pago -->
-            <div class="service-card">
-                <h3 class="text-xl font-semibold text-white">Tráfego Pago</h3>
+            <div class="p-4 bg-white/10 rounded-lg hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-orange-300">Tráfego Pago</h3>
                 <img src="./imagens/TRÁFEGO PAGO.jpg" alt="Tráfego Pago"
-                    class="w-full h-48 object-cover rounded-lg mt-4">
+                    class="w-full h-48 object-cover rounded-lg mt-4 transition-transform duration-300 hover:scale-105">
+                <p class="mt-2 text-sm">Resultados reais com gestão inteligente de anúncios.</p>
             </div>
-
-            <!-- Branding -->
-            <div class="service-card">
-                <h3 class="text-xl font-semibold text-white">Gestao de redes sociais</h3>
-                <img src="./imagens/GESTÃO DE REDES SOCIAIS.jpg" alt="Branding"
-                    class="w-full h-48 object-cover rounded-lg mt-4">
+            <div class="p-4 bg-white/10 rounded-lg hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-orange-300">Branding</h3>
+                <img src="./imagens/CRIAÇÃO DE POST.jpg" alt="Branding"
+                    class="w-full h-48 object-cover rounded-lg mt-4 transition-transform duration-300 hover:scale-105">
+                <p class="mt-2 text-sm">Identidade visual marcante para sua marca.</p>
             </div>
         </div>
     </section>
+
+    <div class="h-1 w-20 bg-orange-400 mx-auto my-8 rounded-full opacity-30"></div>
 
     <!-- Portfólio -->
-    <section id="portfolio" class="py-20 bg-grey-600 bg-opacity-80 text-center fade-up">
+    <section id="portfolio" class="py-20 text-center" data-aos="fade-up">
         <h2 class="text-3xl font-bold text-orange-400">Portfólio</h2>
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            <div class="overflow-hidden rounded-lg">
-                <img src="./imagens/storymaker.jpg" class="hover:scale-110 transition-transform duration-300">
-            </div>
-            <div class="overflow-hidden rounded-lg">
-                <img src="./imagens/storymaker.jpg" class="hover:scale-110 transition-transform duration-300">
-            </div>
-            <div class="overflow-hidden rounded-lg">
-                <img src="./imagens/storymaker.jpg" class="hover:scale-110 transition-transform duration-300">
-            </div>
+        <p class="mb-10">Confira alguns dos nossos projetos recentes:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+            <img src="./imagens/VIDEOMAKER.jpg" alt="Projeto 1"
+                class="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+            <img src="./imagens/VIDEOMAKER.jpg" alt="Projeto 2"
+                class="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+            <img src="./imagens/storymaker.jpg" alt="Projeto 3"
+                class="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
         </div>
     </section>
 
-    <!-- Botão Voltar ao Topo -->
-    <button id="btnTopo"
-        class="fixed bottom-6 right-6 bg-orange-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-orange-600 transition hidden">↑</button>
+    <div class="h-1 w-20 bg-orange-400 mx-auto my-8 rounded-full opacity-30"></div>
 
-    <footer class="bg-green-900 bg-opacity-70 text-center py-4">
-        <p>&copy; 2025 Yoop Agência de Marketing</p>
+    <!-- Contato -->
+    <section id="contato" class="py-20 text-center" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-orange-400">Entre em Contato</h2>
+        <form action="#" method="POST" class="mt-6 max-w-xl mx-auto grid gap-4">
+            <input type="text" name="nome" placeholder="Seu nome" required class="p-3 rounded bg-white text-black">
+            <input type="email" name="email" placeholder="Seu email" required class="p-3 rounded bg-white text-black">
+            <textarea name="mensagem" rows="4" placeholder="Sua mensagem" required
+                class="p-3 rounded bg-white text-black"></textarea>
+            <button type="submit"
+                class="bg-orange-500 px-6 py-3 rounded hover:bg-orange-600 transition transform hover:scale-105">Enviar</button>
+        </form>
+    </section>
+
+    <footer class="text-center py-4 text-sm opacity-60">
+        <p>&copy; 2025 Yoop Agência de Marketing. Todos os direitos reservados.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Header muda cor ao rolar
-        window.addEventListener('scroll', () => {
-            document.getElementById('header').classList.toggle('bg-green-900', window.scrollY > 50);
-        });
-
-        // Botão de voltar ao topo
-        const btnTopo = document.getElementById('btnTopo');
-        window.addEventListener('scroll', () => {
-            btnTopo.classList.toggle('hidden', window.scrollY < 300);
-        });
-        btnTopo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        // Animações de scroll
-        const fadeElements = document.querySelectorAll('.fade-up');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('show');
-            });
-        }, { threshold: 0.2 });
-        fadeElements.forEach(el => observer.observe(el));
+        AOS.init({ duration: 700, once: true });
     </script>
 </body>
 
